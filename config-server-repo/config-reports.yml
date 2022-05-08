@@ -1,0 +1,24 @@
+server:
+  port: 9002
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:9000/eureka}
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/pividalm/test-docs.git
+          searchPaths: config-server-repo
+          username: pividalm
+          password: Github@037037
+        default-label: main
+  security:
+    user:
+      name: develcorp
+      password: pass
